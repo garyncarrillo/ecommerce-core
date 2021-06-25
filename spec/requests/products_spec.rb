@@ -21,8 +21,6 @@ RSpec.describe ProductsController , type: :controller do
       product = Product.create!(name: "article no 1 ", description: "descrription no 1", price: 100, weight: 100)
       get :show, params: { id: product.id }
       json_response = JSON.parse(response.body)
-      pp
-      pp '*' * 100
       expect(json_response['data']['attributes'].as_json.keys).to match_array([
         "id",
         "name",
